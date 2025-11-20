@@ -1,3 +1,4 @@
+
 *{box-sizing:border-box}
 body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0e0e0e;color:#fff;}
 .hero{position:relative;text-align:center;padding:88px 20px;background:radial-gradient(1200px 600px at 50% -20%, #1b1b1b 0%, #0e0e0e 60%);} 
@@ -7,7 +8,9 @@ body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-s
 .cta:hover{transform:translateY(-2px);background:#ffcc00;color:#111;box-shadow:0 0 18px rgba(255,204,0,.6)}
 .floating-bg::before,.floating-bg::after{content:"";position:absolute;inset:0;background:url('assets/chips.svg') no-repeat 10% 20%/120px, url('assets/cards.svg') no-repeat 90% 30%/140px;opacity:.08;animation:float 14s linear infinite alternate}
 @keyframes float{from{transform:translateY(-10px)}to{transform:translateY(10px)}}
-.mat-animation{height:12px;width:0;background:#19ff88;box-shadow:0 0 16px #19ff88;margin:32px auto 0;border-radius:6px}
+.mat-animation{height:12px;width:0;background:#19ff88;box-shadow:0 0 16px #19ff88;margin:32px auto 0;border-radius:6px;transition:width .8s ease}
+.mat-animation.expanded{width:60vw;max-width:720px}
+@media (max-width:640px){.mat-animation.expanded{width:88vw}}
 .features{padding:56px 20px;max-width:1100px;margin:auto}
 .features h2,.demo h2,.gallery h2,.testimonials h2{font-weight:700;text-align:center;margin:0 0 24px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
@@ -19,9 +22,13 @@ body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-s
 #rollBtn:hover{filter:brightness(1.1)}
 .mat-demo{width:90vw;max-width:720px;aspect-ratio:2/1;margin:20px auto;border-radius:16px;background:url('assets/mat.svg') no-repeat center/cover;transform:scaleX(0);transform-origin:left center;transition:transform 1s ease}
 .gallery{padding:40px 20px}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;max-width:1100px;margin:auto}
-.zoom{width:100%;border-radius:12px;border:1px solid #262626;transition:transform .25s, box-shadow .25s;cursor:zoom-in}
-.zoom:hover{transform:scale(1.05);box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.gallery-carousel{position:relative;max-width:960px;margin:0 auto;overflow:hidden}
+.gallery-carousel .track{display:flex;transition:transform .6s ease}
+.gallery-carousel .slide{min-width:100%;display:flex;justify-content:center}
+.gallery-carousel img{width:100%;max-width:720px;border-radius:12px;border:1px solid #262626}
+.gallery-carousel .nav{position:absolute;top:50%;transform:translateY(-50%);background:#111;border:1px solid #333;color:#ffcc00;border-radius:50%;width:42px;height:42px;cursor:pointer}
+.gallery-carousel .prev{left:6px}
+.gallery-carousel .next{right:6px}
 .testimonials{padding:40px 0}
 .carousel{position:relative;overflow:hidden;max-width:840px;margin:0 auto}
 .slide{min-width:100%;padding:18px 20px;text-align:center;opacity:.9;transition:transform .6s ease;color:#ddd}
@@ -38,9 +45,29 @@ select, input[type=number]{width:100%;padding:10px;border-radius:8px;border:1px 
 .stepper input{width:72px;text-align:center}
 .actions{margin-top:16px;display:flex;gap:12px}
 .cta.primary{background:#111;color:#fff;border:1px solid #19ff88;box-shadow:0 0 12px rgba(25,255,136,.35)}
-.note{font-size:.85rem;color:#666;margin-top:8px}
+.modal-total{margin-top:8px;font-weight:600;color:#19ff88}
 @media (max-width:480px){.hero h1{font-size:2.2rem}}
 
-.mat-animation{height:12px;width:0;background:#19ff88;box-shadow:0 0 16px #19ff88;margin:32px auto 0;border-radius:6px;transition:width .8s ease}
-.mat-animation.expanded{width:60vw;max-width:720px}
-@media (max-width:640px){.mat-animation.expanded{width:88vw}}
+
+/* Intro overlay */
+.intro{position:fixed;inset:0;z-index:999;background:radial-gradient(800px 400px at 50% -10%, #141414 0%, #0b0b0b 60%);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .6s ease}
+.intro.hide{opacity:0;pointer-events:none}
+.intro-bg{position:absolute;inset:0;background:url('assets/chips.svg') no-repeat 15% 30%/140px, url('assets/cards.svg') no-repeat 85% 25%/160px;opacity:.08;animation:introFloat 12s linear infinite alternate}
+@keyframes introFloat{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
+.intro-inner{text-align:center}
+.brand{font-size:3rem;color:#ffcc00;letter-spacing:.06em;text-shadow:0 0 18px rgba(255,204,0,.45);margin-bottom:8px}
+.tag{color:#8adfb4;margin-bottom:18px}
+.deck{position:relative;height:180px;width:300px;margin:0 auto}
+.card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9) rotate(0deg);width:140px;height:200px;border-radius:14px;background:#fff;color:#111;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:2rem;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.c1{animation:deal1 1.2s ease forwards .2s}
+.c2{animation:deal2 1.2s ease forwards .35s}
+.c3{animation:deal3 1.2s ease forwards .5s}
+.c4{animation:deal4 1.2s ease forwards .65s}
+.c5{animation:deal5 1.2s ease forwards .8s}
+@keyframes deal1{to{transform:translate(-160%,-30%) rotate(-12deg)}}
+@keyframes deal2{to{transform:translate(-80%,-60%) rotate(-6deg)}}
+@keyframes deal3{to{transform:translate(-0%,-75%) rotate(0deg)}}
+@keyframes deal4{to{transform:translate(80%,-60%) rotate(6deg)}}
+@keyframes deal5{to{transform:translate(160%,-30%) rotate(12deg)}}
+.skip{margin-top:18px;background:#111;color:#ffcc00;border:1px solid #333;border-radius:10px;padding:10px 16px;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.intro-bg{animation:none}.card{animation:none}}
