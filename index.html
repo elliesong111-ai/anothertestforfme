@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Roll'N'Deal - Portable Poker Mats</title>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+
+<div id='intro' class='intro' aria-hidden='true'>
+  <div class='intro-bg'></div>
+  <div class='intro-inner'>
+    <div class='brand'>Roll'N'Deal</div>
+    <div class='tag'>Tap to deal</div>
+    <div class='deck'>
+      <div class='card c1'>A♠</div>
+      <div class='card c2'>K♥</div>
+      <div class='card c3'>Q♣</div>
+      <div class='card c4'>J♦</div>
+      <div class='card c5'>10♠</div>
+    </div>
+    <button id='skipIntro' class='skip' aria-label='Skip intro'>Skip</button>
+  </div>
+</div>
+
+<header class='hero'>
+  <div class='floating-bg'></div>
+  <h1>Roll'N'Deal</h1>
+  <p>Poker Anywhere, Anytime</p>
+  <button class='cta' id='shopBtn'>Shop Now</button>
+  <div class='mat-animation' aria-label='Rolling poker mat demo'></div>
+</header>
+<section class='features'>
+  <h2>Why Roll'N'Deal?</h2>
+  <div class='grid'>
+    <div class='feature'><img src='assets/lightweight.svg' alt='Lightweight'><p>Ultra-Light Design</p></div>
+    <div class='feature'><img src='assets/waterproof.svg' alt='Waterproof'><p>Waterproof Surface</p></div>
+    <div class='feature'><img src='assets/roll.svg' alt='Roll and Go'><p>Roll & Go Convenience</p></div>
+  </div>
+</section>
+<section class='demo'>
+  <h2>See It In Action</h2>
+  <button id='rollBtn'>Roll the Mat</button>
+  <div class='mat-demo' role='img' aria-label='Poker mat image'></div>
+</section>
+<section class='gallery'>
+  <h2>Product Gallery</h2>
+  <div class='gallery-carousel'>
+    <button class='nav prev' aria-label='Previous'>‹</button>
+    <div class='track'>
+      <div class='slide'><img src='assets/mat.svg' alt='Poker mat'></div>
+      <div class='slide'><img src='assets/chips.svg' alt='Poker chips'></div>
+      <div class='slide'><img src='assets/cards.svg' alt='Playing cards'></div>
+    </div>
+    <button class='nav next' aria-label='Next'>›</button>
+  </div>
+</section>
+<section class='cart-cta' style='text-align:center;padding:30px'>
+  <button id='checkoutBtn' class='cta primary'>Checkout with Stripe</button>
+  <p style='color:#8adfb4;font-size:.9rem;margin-top:8px'>Free shipping over $99 · Standard $9.99 · Express $24.99</p>
+</section>
+<section class='testimonials'>
+  <h2>What Players Say</h2>
+  <div class='carousel'>
+    <div class='slide'>“Best poker mat ever!” — Alex</div>
+    <div class='slide'>“Portable and stylish.” — Mia</div>
+    <div class='slide'>“Game nights made easy.” — John</div>
+  </div>
+</section>
+<footer>
+  <p>© 2025 Roll'N'Deal</p>
+  <div class='social'>
+    <a href='#' aria-label='Instagram'>Instagram</a>
+    <a href='#' aria-label='Facebook'>Facebook</a>
+    <a href='#' aria-label='TikTok'>TikTok</a>
+  </div>
+</footer>
+<div id='modal' class='modal' role='dialog' aria-modal='true' aria-labelledby='shopTitle' aria-hidden='true'>
+  <div class='modal-content'>
+    <button class='close' aria-label='Close'>&times;</button>
+    <h2 id='shopTitle'>Shop Roll'N'Deal</h2>
+    <form id='buyForm'>
+      <label class='label'>SKU
+        <select id='sku' required>
+          <option value='' disabled selected>Select a SKU</option>
+          <option value='classic'>Classic</option>
+          <option value='pro'>Pro</option>
+          <option value='xl'>XL Travel</option>
+          <option value='neon'>Limited Neon</option>
+        </select>
+      </label>
+      <label class='label'>Color
+        <select id='color' required>
+          <option value='' disabled selected>Select a Color</option>
+          <option value='forest-green'>Forest Green</option>
+          <option value='midnight-black'>Midnight Black</option>
+          <option value='royal-blue'>Royal Blue</option>
+          <option value='crimson-red'>Crimson Red</option>
+        </select>
+      </label>
+      <div class='qty-row'>
+        <span class='label'>Quantity</span>
+        <div class='stepper'>
+          <button type='button' id='minus' aria-label='Decrease quantity'>−</button>
+          <input id='qty' type='number' min='1' value='1' aria-label='Quantity'>
+          <button type='button' id='plus' aria-label='Increase quantity'>+</button>
+        </div>
+      </div>
+      <div id='modalTotal' class='modal-total'>Choose SKU to see total</div>
+      <div class='actions'>
+        <button type='submit' class='cta primary'>Submit</button>
+      </div>
+      <p class='note'>Price & shipping TBD — replace with real data when ready.</p>
+    </form>
+  </div>
+</div>
+<script src='script.js'></script>
+</body>
+</html>
