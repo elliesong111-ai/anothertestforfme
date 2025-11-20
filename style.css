@@ -1,0 +1,46 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0e0e0e;color:#fff;}
+.hero{position:relative;text-align:center;padding:88px 20px;background:radial-gradient(1200px 600px at 50% -20%, #1b1b1b 0%, #0e0e0e 60%);} 
+.hero h1{font-size:3rem;color:#ffcc00;margin:0 0 8px}
+.hero p{margin:0 0 24px;color:#ddd}
+.cta{background:#ff2d55;color:#fff;padding:14px 28px;border:none;border-radius:10px;font-size:1.1rem;cursor:pointer;box-shadow:0 0 12px rgba(255,45,85,.5);transition:.25s}
+.cta:hover{transform:translateY(-2px);background:#ffcc00;color:#111;box-shadow:0 0 18px rgba(255,204,0,.6)}
+.floating-bg::before,.floating-bg::after{content:"";position:absolute;inset:0;background:url('assets/chips.svg') no-repeat 10% 20%/120px, url('assets/cards.svg') no-repeat 90% 30%/140px;opacity:.08;animation:float 14s linear infinite alternate}
+@keyframes float{from{transform:translateY(-10px)}to{transform:translateY(10px)}}
+.mat-animation{height:12px;width:0;background:#19ff88;box-shadow:0 0 16px #19ff88;margin:32px auto 0;border-radius:6px}
+.features{padding:56px 20px;max-width:1100px;margin:auto}
+.features h2,.demo h2,.gallery h2,.testimonials h2{font-weight:700;text-align:center;margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.feature{background:#151515;border:1px solid #2a2a2a;border-radius:14px;padding:18px;text-align:center;transition:transform .25s, box-shadow .25s}
+.feature:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.feature img{width:80px;height:80px;margin-bottom:8px}
+.demo{text-align:center;padding:40px 20px}
+#rollBtn{background:#19ff88;color:#0b0b0b;border:none;padding:12px 20px;border-radius:10px;cursor:pointer;box-shadow:0 0 12px rgba(25,255,136,.4)}
+#rollBtn:hover{filter:brightness(1.1)}
+.mat-demo{width:90vw;max-width:720px;aspect-ratio:2/1;margin:20px auto;border-radius:16px;background:url('assets/mat.svg') no-repeat center/cover;transform:scaleX(0);transform-origin:left center;transition:transform 1s ease}
+.gallery{padding:40px 20px}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;max-width:1100px;margin:auto}
+.zoom{width:100%;border-radius:12px;border:1px solid #262626;transition:transform .25s, box-shadow .25s;cursor:zoom-in}
+.zoom:hover{transform:scale(1.05);box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.testimonials{padding:40px 0}
+.carousel{position:relative;overflow:hidden;max-width:840px;margin:0 auto}
+.slide{min-width:100%;padding:18px 20px;text-align:center;opacity:.9;transition:transform .6s ease;color:#ddd}
+footer{text-align:center;padding:20px;background:#121212;border-top:1px solid #1f1f1f}
+.social a{margin:0 10px;color:#ffcc00;text-decoration:none}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(2px);z-index:100}
+.modal-content{position:relative;background:#fff;color:#111;padding:24px;margin:10vh auto;width:min(92vw,480px);border-radius:12px;box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.close{position:absolute;top:10px;right:12px;background:#eee;border:none;border-radius:8px;padding:6px 10px;cursor:pointer}
+.label{display:block;font-weight:600;margin:14px 0 6px}
+select, input[type=number]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:1rem}
+.qty-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.stepper{display:flex;gap:8px;align-items:center}
+.stepper button{width:36px;height:36px;border-radius:8px;border:1px solid #ccc;background:#f5f5f5;cursor:pointer}
+.stepper input{width:72px;text-align:center}
+.actions{margin-top:16px;display:flex;gap:12px}
+.cta.primary{background:#111;color:#fff;border:1px solid #19ff88;box-shadow:0 0 12px rgba(25,255,136,.35)}
+.note{font-size:.85rem;color:#666;margin-top:8px}
+@media (max-width:480px){.hero h1{font-size:2.2rem}}
+
+.mat-animation{height:12px;width:0;background:#19ff88;box-shadow:0 0 16px #19ff88;margin:32px auto 0;border-radius:6px;transition:width .8s ease}
+.mat-animation.expanded{width:60vw;max-width:720px}
+@media (max-width:640px){.mat-animation.expanded{width:88vw}}
